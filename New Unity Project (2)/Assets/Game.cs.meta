@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1bbdce8c27ed53945a9fe0f2ca2b8f73
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - stickPrehab: {fileID: 4503555192283382266, guid: b96a57aac3377a044a1b214ecc92c981,
+      type: 3}
+  - AgentPrehab: {fileID: 724226239147882288, guid: 1a78bfab86405464495ad31dc730edab,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
