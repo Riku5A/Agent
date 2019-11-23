@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 4a6cf97743e620c459aa40d8e6e04f35
+guid: d94348bd391b16a4596d2dd04eb89671
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - stickPrehab: {fileID: 4503555192283382266, guid: b96a57aac3377a044a1b214ecc92c981,
-      type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
