@@ -20,6 +20,7 @@ public class Game : MonoBehaviour
     public GameObject AgentPrehab;
     private Stick[] stickList;
     private Agent[] agentList;
+    private string owner;
 
     void Start(){
         xy = new float[sticknum,2];
@@ -55,6 +56,18 @@ public class Game : MonoBehaviour
             //St[j].init(0f, (-1)*sticknum+1+2*j, sticklen);
         }
     }
+
+    public void updateStick(){
+        for(int j=0;j<sticknum;j++){
+            owner = stickList[j].getOwner();
+            if(owner == "neutral"){
+                xy[j,0] = stickList[j].getX();
+                xy[j,1] = stickList[j].getY();
+            }else{
+                xy[j,0] = 100f;
+            }
+        }
+    }
     
     private void agentInit(string t){//Agentの初期化関数
         agentList = new Agent[10];
@@ -62,11 +75,11 @@ public class Game : MonoBehaviour
             if(t == "red"){
             GameObject agent = Instantiate(AgentPrehab) as GameObject;
             agentList[j] = agent.GetComponent<Agent>();
-            agentList[j].init(11.5f,j,2,0.01f,1,"red");
+            agentList[j].init(11.5f,j,2,0.1f,1,"red");
             }else{
             GameObject agent = Instantiate(AgentPrehab) as GameObject;
             agentList[j] = agent.GetComponent<Agent>();
-            agentList[j].init(-11.5f,j,1,0.01f,1,"white"); 
+            agentList[j].init(-11.5f,j,1,0.1f,1,"white"); 
             }
         }
     }

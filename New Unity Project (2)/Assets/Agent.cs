@@ -7,7 +7,7 @@ public class Agent : MonoBehaviour
     public float x, y, v; //座標、速さ
     public float[] direction; //向き
     private float[] distance; //移動距離
-    private float pow, max_v, size; //力と最大速度と大きさ
+    public float pow, max_v, size; //力と最大速度と大きさ
     public float[,] stickPos;
     public float[] stickMin;
     private string team; //チーム情報
@@ -16,6 +16,7 @@ public class Agent : MonoBehaviour
     private GameObject map;
     private Map mapS;
     private Stick stick;
+    private string owner;
     //public GameObject AgentPrehab;
 
     void Start()
@@ -49,6 +50,10 @@ public class Agent : MonoBehaviour
         this.team = team;
         pull = false;
         transform.position = new Vector3(x, y);
+        v = max_v;
+        if(team == "red"){
+            GetComponent<Renderer>().material.color = Color.red;
+        }
     }
 
     public float getX(){
@@ -129,6 +134,18 @@ public class Agent : MonoBehaviour
             pullStick = col.gameObject;
             stick = pullStick.GetComponent<Stick>();
             //Debug.Log("stick!!");
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col){
+        if(col.tag == "Stick"){
+            pullStick = col.gameObject;
+            stick = pullStick.GetComponent<Stick>();
+            owner = stick.getOwner();
+            if(owner != "neutral"){
+                pull = false;
+                v = max_v;
+            }
         }
     }
 /*

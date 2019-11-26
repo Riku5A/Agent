@@ -37,6 +37,7 @@ public class Map : MonoBehaviour
                 xy[i,1] = stickList[i].getY();
             }
         }*/
+        game.updateStick();
         xy = game.xy;
         return xy;//得られた座標を配列として戻す
     }/*

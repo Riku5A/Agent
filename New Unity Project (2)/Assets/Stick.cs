@@ -10,7 +10,7 @@ public class Stick : MonoBehaviour
     private float[] direction; //向き
     private float[] distance; //移動距離
     private float longth; //長さ
-    private string owner = "neutral"; //所有者(red, white, neutral)
+    public string owner = "neutral"; //所有者(red, white, neutral)
     private string team;
     private Map mapS;
     private Stick stick;
@@ -38,6 +38,7 @@ public class Stick : MonoBehaviour
     {
         decideAction();
         updatePosition();
+        judge();
     }
 
     public void init (float x, float y, float length)
@@ -47,29 +48,32 @@ public class Stick : MonoBehaviour
         this.y = y;
         this.longth = longth;
     }
-/*
-    public int judge()
+
+    public void judge()
     {
-        if(){
-            return 1;
-        }else
+        if(x > 11f){
+            owner = "red";
+            x = 13.5f;
+        }else if(x < -11f)
         {
-            return 0;
+            owner = "white";
+            x = -13.5f;
         }
     }
-*/
 
     public void decideAction()
     {
-        v = 0.05f;
         direction[1] = 0;
         if(redpow > whitepow){
             direction[0] = 1;
+            v = redpow - whitepow;
         }else if(redpow < whitepow){
             direction[0] = -1;
+            v = whitepow - redpow;
         }else if(redpow == whitepow){
             direction[0] = 0;
         }
+        v = v * 0.01f;
     }
 
     public void updatePosition()

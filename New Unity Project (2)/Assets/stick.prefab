@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 415322018e723ce45976f7e9dcc94835, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.98008156, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -95,7 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a6cf97743e620c459aa40d8e6e04f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stickPrehab: {fileID: 4503555192283382266}
+  pow: 0
+  redpow: 0
+  whitepow: 0
+  owner: neutral
 --- !u!61 &4503555192283382262
 BoxCollider2D:
   m_ObjectHideFlags: 0
